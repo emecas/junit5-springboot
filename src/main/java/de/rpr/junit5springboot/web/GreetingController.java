@@ -26,6 +26,11 @@ public class GreetingController {
         return getGreetingService(language).goodMorning();
     }
 
+    @GetMapping("/status")
+    String status() {
+        return "{\"msn\"=\"OK\"}";
+    }
+    
     private GreetingService getGreetingService(final String language) {
         return greetingServices.stream()
                 .filter(service -> service.accepts(Language.fromKey(language)))

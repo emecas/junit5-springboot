@@ -35,7 +35,9 @@ class GreetingControllerTest {
     @Test
     @DisplayName("for a casual occasion a GreetingService should produce a result")
     void casual_greeting_should_invoke_greetingService() throws Exception {
+    	System.out.println("mockMvc -> "+mockMvc);
         when(greetingService.accepts(any())).thenReturn(true);
+        System.out.println("mockMvc -> "+mockMvc);
         MockHttpServletResponse response = mockMvc.perform(get("/greeting/casual")).andReturn().getResponse();
         assertTrue(response.getStatus() == 200);
         verify(greetingService).casualGreeting();
@@ -56,4 +58,13 @@ class GreetingControllerTest {
         MockHttpServletResponse response = mockMvc.perform(get("/greeting/unknown")).andReturn().getResponse();
         assertTrue(response.getStatus() == 404);
     }
+    
+	@Test
+	@DisplayName("for a greeting status an OK")
+	void testStatus() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/greeting/status")).andReturn().getResponse();
+        assertTrue(response.getStatus() == 200);
+        //assertTrue(response.toString().contains("OK"));
+	}
+    
 }
