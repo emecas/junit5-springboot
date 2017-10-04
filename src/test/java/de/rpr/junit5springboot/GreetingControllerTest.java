@@ -1,6 +1,7 @@
 package de.rpr.junit5springboot;
 
 import de.rpr.junit5springboot.service.GreetingService;
+import de.rpr.junit5springboot.service.IService;
 import de.rpr.junit5springboot.web.GreetingController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,9 +29,11 @@ class GreetingControllerTest {
     }
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
     @MockBean
-    GreetingService greetingService;
+    private GreetingService greetingService;
+    @MockBean
+    IService iService;
 
     @Test
     @DisplayName("for a casual occasion a GreetingService should produce a result")

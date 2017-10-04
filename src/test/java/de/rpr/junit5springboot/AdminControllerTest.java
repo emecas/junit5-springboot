@@ -1,12 +1,9 @@
 package de.rpr.junit5springboot;
 
 
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
-
-import org.junit.jupiter.api.Disabled;
+import de.rpr.junit5springboot.service.GreetingService;
+import de.rpr.junit5springboot.service.IService;
+import de.rpr.junit5springboot.web.AdminController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -15,17 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
-
-import de.rpr.junit5springboot.service.IService;
-import de.rpr.junit5springboot.web.AdminController;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 
 @SpringJUnitConfig(AdminControllerTest.Config.class)
@@ -39,14 +31,15 @@ class AdminControllerTest {
 	@Autowired MockHttpServletRequest request;
 	MockMvc mockMvc;
 	*/
-	
-	@Autowired
-	MockMvc mockMvc2;
-	
+
+    @Autowired
+    private MockMvc mockMvc2;
+
     @MockBean
     IService iService;
-	
-	
+	@MockBean
+    GreetingService greetingService;
+
 	
     @ComponentScan(basePackageClasses = AdminController.class)
     static class Config {
