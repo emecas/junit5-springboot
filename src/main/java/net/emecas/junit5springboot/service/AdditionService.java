@@ -1,4 +1,4 @@
-package de.rpr.junit5springboot.service;
+package net.emecas.junit5springboot.service;
 
 import org.springframework.stereotype.Service;
 

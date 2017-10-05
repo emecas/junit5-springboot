@@ -1,9 +1,10 @@
-package de.rpr.junit5springboot;
+package net.emecas.junit5sprigboot.controller;
 
 
 import de.rpr.junit5springboot.service.GreetingService;
-import de.rpr.junit5springboot.service.IService;
-import de.rpr.junit5springboot.web.AdminController;
+import net.emecas.junit5springboot.controller.AdminController;
+import net.emecas.junit5springboot.service.IService;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
+
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -37,8 +39,8 @@ class AdminControllerTest {
 
     @MockBean
     IService iService;
-	@MockBean
-    GreetingService greetingService;
+	//@MockBean
+    //GreetingService greetingService;
 
 	
     @ComponentScan(basePackageClasses = AdminController.class)
@@ -56,7 +58,7 @@ class AdminControllerTest {
 	}
 	
     //@Disabled
-	@Test
+	/*@Test
 	@DisplayName("for for a greeting status testStatus2 an OK")
 	void testStatus2() throws Exception {
 		//mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
@@ -64,6 +66,6 @@ class AdminControllerTest {
         MockHttpServletResponse response = mockMvc2.perform(get("/greeting/status")).andReturn().getResponse();
         assertTrue(response.getStatus() == 200);
         //assertTrue(response.toString().contains("OK"));
-	}
+	}*/
 
 }

@@ -1,4 +1,4 @@
-package de.rpr.junit5springboot.web;
+package net.emecas.junit5springboot.controller;
 
 
 import java.util.List;
@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import de.rpr.junit5springboot.service.IService;
+import net.emecas.junit5springboot.service.IService;
 
 @RestController
 @RequestMapping("/admin")

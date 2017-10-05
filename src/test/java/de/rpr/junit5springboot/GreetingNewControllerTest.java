@@ -1,8 +1,9 @@
 package de.rpr.junit5springboot;
 
 import de.rpr.junit5springboot.service.GreetingService;
-import de.rpr.junit5springboot.service.IService;
 import de.rpr.junit5springboot.web.GreetingNewController;
+import net.emecas.junit5springboot.service.IService;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
