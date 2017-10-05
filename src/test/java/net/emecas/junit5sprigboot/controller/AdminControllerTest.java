@@ -1,9 +1,8 @@
 package net.emecas.junit5sprigboot.controller;
 
 
-import de.rpr.junit5springboot.service.GreetingService;
-import net.emecas.junit5springboot.controller.AdminController;
-import net.emecas.junit5springboot.service.IService;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,9 +16,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
 
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import net.emecas.junit5springboot.controller.AdminController;
+import net.emecas.junit5springboot.service.IService;
 
 
 @SpringJUnitConfig(AdminControllerTest.Config.class)
@@ -34,14 +32,16 @@ class AdminControllerTest {
 	MockMvc mockMvc;
 	*/
 
-    @Autowired
-    private MockMvc mockMvc2;
+    //@Autowired
+    //private MockMvc mockMvc2;
 
     @MockBean
     IService iService;
 	//@MockBean
     //GreetingService greetingService;
 
+    @Autowired
+    private MockMvc mockMvc;
 	
     @ComponentScan(basePackageClasses = AdminController.class)
     static class Config {
@@ -53,8 +53,8 @@ class AdminControllerTest {
 	@DisplayName("for a admin testStatus an OK")
 	void testStatus() throws Exception {
 		//mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-	    //MockHttpServletResponse response = mockMvc.perform(get("/admin/status")).andReturn().getResponse();
-        //assertTrue(response.getStatus() == 200);
+	    MockHttpServletResponse response = mockMvc.perform(get("/admin/status")).andReturn().getResponse();
+        assertTrue(response.getStatus() == 200);
 	}
 	
     //@Disabled

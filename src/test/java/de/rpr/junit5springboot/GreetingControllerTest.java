@@ -1,8 +1,10 @@
 package de.rpr.junit5springboot;
 
-import de.rpr.junit5springboot.service.GreetingService;
-import de.rpr.junit5springboot.web.GreetingController;
-import net.emecas.junit5springboot.service.IService;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,11 +16,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import de.rpr.junit5springboot.service.GreetingService;
+import de.rpr.junit5springboot.web.GreetingController;
 
 @SpringJUnitConfig(GreetingControllerTest.Config.class)
 @WebMvcTest
